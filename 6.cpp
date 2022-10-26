@@ -1,14 +1,29 @@
 #include <iostream>
 #include <cmath>
-#include <cstdio>
 using namespace std;
 typedef long long ll;
 #define fast_io ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 #define files ifstream cin("input.txt");ofstream cout("output.txt");
-double ans,a;
+double ans=0;
+ll c,d;
+ll gcd(ll a,ll b){
+    if(a<b){
+        swap(a,b);
+    }
+    while(b){
+        a%=b;
+        swap(a,b);
+        //t = b;
+        //b = a % b;
+        //a = t
+    }
+    return a;
+}
+ll lcm(ll a, ll b){
+    return a/ gcd(a,b)*b;
+}
 int main(){
-    cin>>a;
-    ans=(3*sqrt(3)*pow(a,2))/2;
-    cout<<ans<<'\n';
+    cin>>c>>d;
+    cout<<gcd(c,d)<<" "<<lcm(c,d)<<'\n';
     return 0;
 }
